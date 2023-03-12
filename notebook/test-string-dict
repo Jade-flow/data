@@ -1,0 +1,142 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/remjw/data/blob/master/notebook/test-string-dict\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Define list address with test criteria from above\n",
+        "address = [\"W3Schools.com\",\"w3schools.edu\",\"w3s.com\"]\n",
+        "\n",
+        "# Define function to pass list through\n",
+        "def test_string(address):\n",
+        "    # Setup dictionary to store results\n",
+        "    address_dictionary = {}\n",
+        "    # Iterate through each item in the address list\n",
+        "    for i in address:\n",
+        "        # Determine if each item ends with .com, switching to lower case if needed to be case insensative\n",
+        "        if i.lower().endswith('.com'):\n",
+        "            # Count the number of characters in the item, while excluding . : / \\\n",
+        "            characters = sum(1 for n in i if n not in ['.',':','/','\\\\'])\n",
+        "            # Determine if item has more than 10 characters\n",
+        "            if characters > 10:\n",
+        "                # If it does, add it to dictionary with True\n",
+        "                address_dictionary[i] = True\n",
+        "                # If not, add with false\n",
+        "            else:\n",
+        "                address_dictionary[i] = False\n",
+        "        # If item didn't end in .com, adds as False\n",
+        "        else:\n",
+        "            address_dictionary[i] = False\n",
+        "    # Returns dictionary\n",
+        "    return address_dictionary\n",
+        "\n",
+        "# Print Results to test\n",
+        "print(test_string(address))\n"
+      ],
+      "metadata": {
+        "id": "N1XdIYmUgrS_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "final_dictionary = {}\n",
+        "\n",
+        "def test_string(address):\n",
+        "    for n in address:\n",
+        "        if (n[-3:].lower() == \"com\"):\n",
+        "           if(len(n) >= 10):\n",
+        "               final_dictionary[n] = 'True'\n",
+        "           else:\n",
+        "               final_dictionary[n] = 'False'\n",
+        "        else:\n",
+        "            final_dictionary[n] = 'False'\n",
+        "    print(final_dictionary)\n",
+        "\n",
+        "\n",
+        "test_string([\"W3Schools.Com\",\"w3schools.edu\",\"w3s.com\"])"
+      ],
+      "metadata": {
+        "id": "Yb74rrMejGDM",
+        "outputId": "6f4d12cc-2bd5-41d2-faa1-90c28a00b6f5",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'W3Schools.Com': 'True', 'w3schools.edu': 'False', 'w3s.com': 'False'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def test_string(address):\n",
+        "    address_dict = {}\n",
+        "    for x in address:\n",
+        "        characters = 0\n",
+        "        for y in x:\n",
+        "            if y != [\".\", \"/\", \"\\\\\", \":\"]:\n",
+        "                characters += 1\n",
+        "        if x.lower().endswith(\".com\") and characters > 10:\n",
+        "            address_dict[x] = True\n",
+        "        else:\n",
+        "            address_dict[x] = False\n",
+        "    return address_dict\n",
+        "\n",
+        "\n",
+        "address_links = [\"W3Schools.Com\", \"w3schools.edu\", \"w3s.com\"]\n",
+        "answer = test_string(address_links)\n",
+        "print(answer)"
+      ],
+      "metadata": {
+        "id": "PyzZIhFfhOmq",
+        "outputId": "2c270401-cf80-4eb8-e1e4-4978ccbe51dd",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'W3Schools.Com': True, 'w3schools.edu': False, 'w3s.com': False}\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome To Colaboratory",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
