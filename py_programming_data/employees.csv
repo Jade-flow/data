@@ -1,0 +1,6 @@
+employee_id,first_name,last_name,sex,hire_year,pay_rate
+e200300,Tom,Bean,male,1980,20
+e200301,Alice,Bean,female,1990,10
+e200302,Tony,Gaddis,male,1970,40
+e200303,Whitney,Gaddis,female,1975,35
+e200303,Tamara,Gaddis,female,1971,35
